@@ -1,0 +1,124 @@
+[
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "geometric_adstock",
+        "importPath": "pymc_marketing.mmm.transformers",
+        "description": "pymc_marketing.mmm.transformers",
+        "isExtraImport": true,
+        "detail": "pymc_marketing.mmm.transformers",
+        "documentation": {}
+    },
+    {
+        "label": "logistic_saturation",
+        "importPath": "pymc_marketing.mmm.transformers",
+        "description": "pymc_marketing.mmm.transformers",
+        "isExtraImport": true,
+        "detail": "pymc_marketing.mmm.transformers",
+        "documentation": {}
+    },
+    {
+        "label": "data_generator_params",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MaxAbsScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "detect_outlier",
+        "kind": 2,
+        "importPath": "models.preprocessing",
+        "description": "models.preprocessing",
+        "peekOfCode": "def detect_outlier(col):\n    # Using Interquartile range (IQR)\n    sorted(col)\n    lower_quartile, upper_quartile = np.percentile(col, [25, 75])\n    IQR = upper_quartile - lower_quartile\n    lower_range = lower_quartile - (1.5 * IQR)\n    upper_range = upper_quartile + (1.5 * IQR)\n    return lower_range, upper_range\ndef replace_missing_values(df):\n    # Replace missing values with the average of the preceding and following row",
+        "detail": "models.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "replace_missing_values",
+        "kind": 2,
+        "importPath": "models.preprocessing",
+        "description": "models.preprocessing",
+        "peekOfCode": "def replace_missing_values(df):\n    # Replace missing values with the average of the preceding and following row\n    for col in df.columns:\n        if df[col].dtype in ['float64', 'int64']:  # Apply only to numeric columns\n            for index in df[col][df[col].isna()].index:  # Get indices of NaN values\n                prev_value = df[col].iloc[index - 1] if index > 0 else np.nan\n                next_value = df[col].iloc[index + 1] if index < len(df) - 1 else np.nan\n                # Compute average only if both values exist\n                if not np.isnan(prev_value) and not np.isnan(next_value):\n                    df.at[index, col] = (prev_value + next_value) / 2",
+        "detail": "models.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "kind": 2,
+        "importPath": "models.preprocessing",
+        "description": "models.preprocessing",
+        "peekOfCode": "def clean_data(df):\n    # dataframe dimensions\n    print(f\"This dataframe has {df.shape[0]} rows and {df.shape[1]} columns.\")\n    # Remove duplicates\n    print(\"Remove duplicates\")\n    df = df.drop_duplicates(subset=['date'], keep='first').reset_index(drop=True)\n    print(f\"The dataframe now has {df.shape[0]} rows and {df.shape[1]} columns.\")\n    # Preprocessing missing values\n    print(\"Replace missing values\")\n    df = replace_missing_values(df)",
+        "detail": "models.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "data_generator_params",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "data_generator_params = {\n    \"channels\": [\"tv_ad\", \"social_ad\", \"search_ad\"],\n    \"adstock_alphas\": [0.50, 0.25, 0.05],  # Adstock effect parameters\n    \"saturation_lamdas\": [1.5, 2.5, 3.5],  # Saturation effect parameters\n    \"betas\": [350, 150, 50],  # Impact coefficients for each channel\n    \"spend_scalars\": [10, 15, 20]  # Scaling factors for ad spend\n}",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "data_generator",
+        "kind": 2,
+        "importPath": "utils.data_generator",
+        "description": "utils.data_generator",
+        "peekOfCode": "def data_generator(start_date, periods, channels, spend_scalar, adstock_alphas, saturation_lamdas, betas, freq=\"W\", random_state=42):\n    '''\n    Generates a synthetic dataset for a MMM with trend, seasonality, and channel-specific contributions.\n    Args:\n        start_date (str or pd.Timestamp): The start date for the generated time series data.\n        periods (int): The number of time periods (e.g., days, weeks) to generate data for.\n        channels (list of str): A list of channel names for which the model will generate spend and conversion data.\n        spend_scalar (list of float): Scalars that adjust the raw spend for each channel to a desired scale.\n        adstock_alphas (list of float): The adstock decay factors for each channel, determining how much past spend influences the current period.\n        saturation_lamdas (list of float): Lambda values for the logistic saturation function, controlling the saturation effect on each channel.",
+        "detail": "utils.data_generator",
+        "documentation": {}
+    }
+]
