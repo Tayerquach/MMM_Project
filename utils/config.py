@@ -6,3 +6,26 @@ data_generator_params = {
     "betas": [350, 150, 50],  # Impact coefficients for each channel
     "spend_scalars": [10, 15, 20]  # Scaling factors for ad spend
 }
+
+TARGET = "conversion"
+MEDIA_CHANNELS = ["tv_ad", "social_ad", "search_ad"]
+CONTROL_FEATURES = ["organic_proxy"]
+# control_features = ["Trend", "Seasonal"]
+FEATURES = MEDIA_CHANNELS
+
+adstock_features_params = {
+    "tv_ad_adstock": (0.1, 0.4),
+    "social_ad_adstock": (0.1, 0.4),
+    "search_ad_adstock": (0.1, 0.4),
+}
+hill_slopes_params = {
+    "tv_ad_hill_slope": (0.1, 5.0),
+    "social_ad_hill_slope": (0.1, 5.0),
+    "search_ad_hill_slope": (0.1, 5.0),
+}
+hill_half_saturations_params = {
+    "tv_ad_hill_half_saturation": (0.1, 1.0),
+    "social_ad_hill_half_saturation": (0.1, 1.0),
+    "search_ad_hill_half_saturation": (0.1, 1.0),
+}
+OPTUNA_TRIALS = 1000

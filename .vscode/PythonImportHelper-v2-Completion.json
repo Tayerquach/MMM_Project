@@ -45,6 +45,247 @@
         "documentation": {}
     },
     {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "Ridge",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "Ridge",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "TimeSeriesSplit",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "plot_forecast",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_forecast",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_response_decomposition",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_spend_response_curve",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "mape_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "mape_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split_time_series",
+        "importPath": "utils.data_helpers",
+        "description": "utils.data_helpers",
+        "isExtraImport": true,
+        "detail": "utils.data_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTROL_FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTUNA_TRIALS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "adstock_features_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_slopes_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_half_saturations_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTROL_FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_contribution",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "model_refit",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "optuna_optimize",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "process_media_channels",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
         "label": "geometric_adstock",
         "importPath": "pymc_marketing.mmm.transformers",
         "description": "pymc_marketing.mmm.transformers",
@@ -74,6 +315,100 @@
         "description": "sklearn.preprocessing",
         "isExtraImport": true,
         "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.graph_objects",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.graph_objects",
+        "description": "plotly.graph_objects",
+        "detail": "plotly.graph_objects",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.ticker",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.ticker",
+        "description": "matplotlib.ticker",
+        "detail": "matplotlib.ticker",
+        "documentation": {}
+    },
+    {
+        "label": "BaseEstimator",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "TransformerMixin",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "optuna",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "optuna",
+        "description": "optuna",
+        "detail": "optuna",
+        "documentation": {}
+    },
+    {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
         "documentation": {}
     },
     {
@@ -108,7 +443,79 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "data_generator_params = {\n    \"channels\": [\"tv_ad\", \"social_ad\", \"search_ad\"],\n    \"adstock_alphas\": [0.50, 0.25, 0.05],  # Adstock effect parameters\n    \"saturation_lamdas\": [1.5, 2.5, 3.5],  # Saturation effect parameters\n    \"betas\": [350, 150, 50],  # Impact coefficients for each channel\n    \"spend_scalars\": [10, 15, 20]  # Scaling factors for ad spend\n}",
+        "peekOfCode": "data_generator_params = {\n    \"channels\": [\"tv_ad\", \"social_ad\", \"search_ad\"],\n    \"adstock_alphas\": [0.50, 0.25, 0.05],  # Adstock effect parameters\n    \"saturation_lamdas\": [1.5, 2.5, 3.5],  # Saturation effect parameters\n    \"betas\": [350, 150, 50],  # Impact coefficients for each channel\n    \"spend_scalars\": [10, 15, 20]  # Scaling factors for ad spend\n}\nTARGET = \"conversion\"\nMEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "TARGET = \"conversion\"\nMEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "MEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTROL_FEATURES",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "CONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "FEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),\n    \"search_ad_hill_slope\": (0.1, 5.0),",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "adstock_features_params",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "adstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),\n    \"search_ad_hill_slope\": (0.1, 5.0),\n}",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_slopes_params",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "hill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),\n    \"search_ad_hill_slope\": (0.1, 5.0),\n}\nhill_half_saturations_params = {\n    \"tv_ad_hill_half_saturation\": (0.1, 1.0),\n    \"social_ad_hill_half_saturation\": (0.1, 1.0),\n    \"search_ad_hill_half_saturation\": (0.1, 1.0),\n}",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_half_saturations_params",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "hill_half_saturations_params = {\n    \"tv_ad_hill_half_saturation\": (0.1, 1.0),\n    \"social_ad_hill_half_saturation\": (0.1, 1.0),\n    \"search_ad_hill_half_saturation\": (0.1, 1.0),\n}\nOPTUNA_TRIALS = 1000",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTUNA_TRIALS",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "OPTUNA_TRIALS = 1000",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -119,6 +526,204 @@
         "description": "utils.data_generator",
         "peekOfCode": "def data_generator(start_date, periods, channels, spend_scalar, adstock_alphas, saturation_lamdas, betas, freq=\"W\", random_state=42):\n    '''\n    Generates a synthetic dataset for a MMM with trend, seasonality, and channel-specific contributions.\n    Args:\n        start_date (str or pd.Timestamp): The start date for the generated time series data.\n        periods (int): The number of time periods (e.g., days, weeks) to generate data for.\n        channels (list of str): A list of channel names for which the model will generate spend and conversion data.\n        spend_scalar (list of float): Scalars that adjust the raw spend for each channel to a desired scale.\n        adstock_alphas (list of float): The adstock decay factors for each channel, determining how much past spend influences the current period.\n        saturation_lamdas (list of float): Lambda values for the logistic saturation function, controlling the saturation effect on each channel.",
         "detail": "utils.data_generator",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split_time_series",
+        "kind": 2,
+        "importPath": "utils.data_helpers",
+        "description": "utils.data_helpers",
+        "peekOfCode": "def train_test_split_time_series(df, test_size=0.3):\n    \"\"\"\n    Splits a time series DataFrame into train and test sets while preserving time order.\n    Parameters:\n        df (pd.DataFrame): Time series DataFrame with a datetime index.\n        test_size (float): Proportion of the dataset to use as the test set (e.g., 0.3 for 30%).\n    Returns:\n        pd.DataFrame, pd.DataFrame: Train and test DataFrames.\n    \"\"\"\n    if not isinstance(df.index, pd.DatetimeIndex):",
+        "detail": "utils.data_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "mape_metrics",
+        "kind": 2,
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "peekOfCode": "def mape_metrics(test_set, predicted) -> float:\n    \"\"\"\n    This function calculates the MAPE.\n    ---\n    Args:\n        test_set (pd.Series):  test set filtered series with y\n        predicted (pd.Series):  predicted series\n    Returns: float MAPE percentage\n    \"\"\"\n    # Calculate the MAPE value and return",
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "kind": 2,
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "peekOfCode": "def rmse_metrics(test_set, predicted) -> float:\n    \"\"\"\n    This function calculates the RMSE.\n    ---\n    Args:\n        test_set (pd.Series):  test set filtered series with y\n        predicted (pd.Series):  predicted series\n    Returns: float RMSE\n    \"\"\"  \n    # Calculate the MAPE value and return",
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "plot_forecast",
+        "kind": 2,
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "peekOfCode": "def plot_forecast(train_df, test_df, prediction: np.array, target_name, title, xlabel, ylabel):\n    \"\"\"\n    This function plots the train, test, and forecast values with date range selection.\n    \"\"\"\n    # Combine train and test to get full date range\n    full_df = pd.concat([train_df, test_df])\n    # Get min and max dates\n    min_date = full_df.index.min()\n    max_date = full_df.index.max()\n    # Create figure",
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "format_thousands_millions",
+        "kind": 2,
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "peekOfCode": "def format_thousands_millions(x, pos) -> str:\n    if abs(x) >= 1e6:\n        return \"{:.1f}M\".format(x * 1e-6)\n    elif abs(x) >= 1e3:\n        return \"{:.1f}K\".format(x * 1e-3)\n    else:\n        return \"{:.1f}\".format(x)\ndef plot_spend_response_curve(\n    channel, spend_response_df, response_name, \n    average_spend=0, average_response=0, ",
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_spend_response_curve",
+        "kind": 2,
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "peekOfCode": "def plot_spend_response_curve(\n    channel, spend_response_df, response_name, \n    average_spend=0, average_response=0, \n    max_spend=0, max_response=0, \n    optimized_spend=None, optimized_response=None, \n    figure_size=(15, 6)\n):\n    statistics_spend_response_df = pd.DataFrame({\n        'average_spend': [average_spend], \n        'average_response': [average_response],",
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_response_decomposition",
+        "kind": 2,
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "peekOfCode": "def plot_response_decomposition(contribution_df):\n    \"\"\"\n    Creates a horizontal bar chart (Waterfall) showing response decomposition by channels.\n    Args:\n        contribution_df (pd.DataFrame): DataFrame with 'channels' and 'effect_share' columns.\n    Returns:\n        Matplotlib figure for Streamlit.\n    \"\"\"\n    # Sort data\n    contribution_df = contribution_df.sort_values(by=\"effect_share\", ascending=True)  ",
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "AdstockGeometric",
+        "kind": 6,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "class AdstockGeometric(BaseEstimator, TransformerMixin):\n    def __init__(self, alpha=0.5):\n        self.alpha = alpha\n    def fit(self, X, y=None):\n        return self\n    def transform(self, X: np.ndarray):\n        x_decayed = np.zeros_like(X)\n        x_decayed[0] = X[0]\n        for xi in range(1, len(x_decayed)):\n            x_decayed[xi] = X[xi] + self.alpha * x_decayed[xi - 1]",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "HillSaturation",
+        "kind": 6,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "class HillSaturation(BaseEstimator, TransformerMixin):\n    def __init__(self, slope_s, half_saturation_k):\n        if slope_s < 0 or half_saturation_k < 0:\n            raise ValueError(\"slope_s and half_saturation_k must be non-negative\")\n        self.slope_s = slope_s\n        self.half_saturation_k = half_saturation_k\n        self.epsilon = 1e-9  # small constant value to avoid division by zero\n    def fit(self, X, y=None):\n        return self\n    def transform(self, X: np.ndarray, x_point = None):",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "ridge_model",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def ridge_model(ridge_alpha, x_train, y_train, x_test):\n    ridge = Ridge(alpha = ridge_alpha, random_state=42)\n    ridge.fit(x_train, y_train)\n    prediction = ridge.predict(x_test)\n    return prediction\n# Hyperparameter Optimization\ndef optuna_trial(trial, \n                 data:pd.DataFrame, \n                 target,\n                 features,",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "optuna_trial",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def optuna_trial(trial, \n                 data:pd.DataFrame, \n                 target,\n                 features,\n                 adstock_features, \n                 adstock_features_params, \n                 hill_slopes_params, \n                 hill_half_saturations_params, \n                 regressor,\n                 tscv):",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "optuna_optimize",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def optuna_optimize(trials, \n                    data: pd.DataFrame, \n                    target, \n                    features,\n                    adstock_features, \n                    adstock_features_params, \n                    hill_slopes_params, \n                    hill_half_saturations_params, \n                    regressor,\n                    tscv, ",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "model_refit",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def model_refit(data, \n                target, \n                features, \n                media_channels, \n                organic_channels,\n                model_params, \n                adstock_params, \n                hill_slopes_params,\n                hill_half_saturations_params,\n                regressor,",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "process_media_channels",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def process_media_channels(media_channels, result, adstock_params_best, hill_slopes_params_best, \n                           hill_half_saturations_params_best, feature_coefficients):\n    \"\"\"\n    Processes media channels to compute spend-response relationships and store necessary data.\n    Args:\n        media_channels (list): List of media channels.\n        result (dict): Contains model data for media channels.\n        adstock_params_best (dict): Adstock parameters for each channel.\n        hill_slopes_params_best (dict): Hill saturation slope parameters.\n        hill_half_saturations_params_best (dict): Hill half-saturation parameters.",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_contribution",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def estimate_contribution(result, media_spend_response_data, start_predicted_index, end_predicted_index):\n    response_df = pd.DataFrame()\n    for media_channel in MEDIA_CHANNELS:\n        response = media_spend_response_data[media_spend_response_data['media_channel'] == media_channel].iloc[start_predicted_index:end_predicted_index].response.values\n        response_total = response.sum()\n        response_df = pd.concat([response_df, pd.DataFrame({'media': [media_channel], 'total_effect': [response_total]})]).reset_index(drop=True)\n    response_df[\"effect_share\"] = response_df[\"total_effect\"] / response_df[\"total_effect\"].sum()\n    organic_data = result[\"model_data\"].iloc[start_predicted_index:end_predicted_index]\n    organic_data = organic_data[[TARGET] + CONTROL_FEATURES]\n    # Calculate effect share",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "def load_data():\n    train_df = pd.read_csv(\"data/train_data.csv\", index_col=0, parse_dates=True)\n    test_df = pd.read_csv(\"data/test_data.csv\", index_col=0, parse_dates=True)\n    return train_df, test_df\n# Display content based on the selected menu option\nif selected_menu == \"Conversion Prediction\":\n    st.title(\"📈 Conversion Prediction\")\n    # Dropdown for model selection (shows user-friendly names)\n    selected_model_name = st.selectbox(\"Select Model:\", list(model_mapping.keys()), index=0)\n    # Get the corresponding internal model identifier",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "logo_path",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "logo_path = \"photo/marsci_logo.png\"  # Ensure the correct filename\nlogo = Image.open(logo_path)\n# Sidebar with aligned logo + bigger text\nwith st.sidebar:\n    col1, col2 = st.columns([1, 1])  # Adjust ratio for spacing\n    with col1:\n        st.image(logo, width=150)  # Adjust width as needed\n    with col2:\n        st.markdown(\n            \"<h1 style='font-size: 28px; margin-top: 10px;'>MarSci</h1>\",",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "logo",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "logo = Image.open(logo_path)\n# Sidebar with aligned logo + bigger text\nwith st.sidebar:\n    col1, col2 = st.columns([1, 1])  # Adjust ratio for spacing\n    with col1:\n        st.image(logo, width=150)  # Adjust width as needed\n    with col2:\n        st.markdown(\n            \"<h1 style='font-size: 28px; margin-top: 10px;'>MarSci</h1>\",\n            unsafe_allow_html=True",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "menu_options",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "menu_options = [\"Conversion Prediction\", \"Response Curve\", \"Budget Optimization\"]\nselected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\ntarget_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "selected_menu",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "selected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\ntarget_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "target_name",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "target_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV\n# @st.cache_data",
+        "detail": "streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "model_mapping",
+        "kind": 5,
+        "importPath": "streamlit_app",
+        "description": "streamlit_app",
+        "peekOfCode": "model_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV\n# @st.cache_data\ndef load_data():\n    train_df = pd.read_csv(\"data/train_data.csv\", index_col=0, parse_dates=True)",
+        "detail": "streamlit_app",
         "documentation": {}
     }
 ]

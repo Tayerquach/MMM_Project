@@ -117,4 +117,3 @@ if __name__ == "__main__":
     df['conversion'] = df['conversion'].astype(int)
     # Save data
     df.to_csv(f"data/{freq}_raw_three_year_data.csv", index=False)
-    
