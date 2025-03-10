@@ -40,9 +40,9 @@ Since sales are influenced by both real demand and marketing spend, the model ne
 * Search ads convert customers who are already looking for coffee immediately.
 
 ## How future ad spend will impact conversion (number of users)
-✅ Predict daily sales ☕.
+✅ Predict daily conversions ☕.
 
-✅ Understand when sales are driven by real demand vs. marketing spend.
+✅ Understand when conversions are driven by real demand vs. marketing spend.
 
 ✅ Optimise marketing budgets across TV, social media, and search.
 
