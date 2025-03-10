@@ -53,15 +53,15 @@ We apply a basic media mix modelling structure to generate the data in our case 
 
 - **Control variables** = *seasonal, discounting tactics, etc.*
 
-Output is in `data` folder under `raw_three_year_data.csv` which contains **three years** of weekly data with **three channels** from different parts of the marketing funnel. Each channel has a different adstock, saturation and contribution. This dataset contains **weekly marketing, demand, and sales data** for **EggBuddy Cafe**, used for **Marketing Mix Modeling (MMM)** to analyze the impact of advertising spend on demand and revenue.
+Output is in `data` folder under `raw_three_year_data.csv` which contains **three years** of weekly data with **three channels** from different parts of the marketing funnel. Each channel has a different adstock, saturation and contribution. This dataset contains **weekly marketing, organic users, and sales data** for **EggBuddy Cafe**, used for **Marketing Mix Modeling (MMM)** to analyze the impact of advertising spend on organic and revenue.
 
 ### **Schema Structure**
 
 | Column Name            | Data Type | Description |
 |------------------------|-----------|-------------|
 | `date`                | `DATE`    | The week-ending date (typically a Sunday), representing the time period for the recorded data. |
-| `demand`              | `FLOAT`   | The actual observed demand for EggBuddy Cafe, measured in orders placed. |
-| `demand_proxy`        | `FLOAT`   | A proxy measure for demand, possibly based on online engagement, foot traffic estimations, or search trends. |
+| `organic`              | `FLOAT`   | The actual observed organic users for EggBuddy Cafe, measured in orders placed. |
+| `organic_proxy`        | `FLOAT`   | A proxy measure for organic users, possibly based on online engagement, foot traffic estimations, or search trends. |
 | `tv_ad_spend_raw`     | `FLOAT`   | The raw amount spent on **TV advertisements** for that week, measured in currency (e.g., dollars). |
 | `social_ad_spend_raw` | `FLOAT`   | The raw amount spent on **social media ads** (e.g., Facebook, Instagram, TikTok) promoting EggBuddy Cafe. |
 | `search_ad_spend_raw` | `FLOAT`   | The raw amount spent on **search engine ads** (e.g., Google Ads) to attract potential customers. |
