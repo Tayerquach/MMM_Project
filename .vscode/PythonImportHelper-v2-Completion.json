@@ -54,19 +54,11 @@
         "documentation": {}
     },
     {
-        "label": "Ridge",
-        "importPath": "sklearn.linear_model",
-        "description": "sklearn.linear_model",
+        "label": "TimeSeriesSplit",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
         "isExtraImport": true,
-        "detail": "sklearn.linear_model",
-        "documentation": {}
-    },
-    {
-        "label": "Ridge",
-        "importPath": "sklearn.linear_model",
-        "description": "sklearn.linear_model",
-        "isExtraImport": true,
-        "detail": "sklearn.linear_model",
+        "detail": "sklearn.model_selection",
         "documentation": {}
     },
     {
@@ -75,6 +67,30 @@
         "description": "sklearn.model_selection",
         "isExtraImport": true,
         "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "TimeSeriesSplit",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "plot_forecast",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "plot_forecast",
+        "importPath": "utils.plot_helpers",
+        "description": "utils.plot_helpers",
+        "isExtraImport": true,
+        "detail": "utils.plot_helpers",
         "documentation": {}
     },
     {
@@ -126,6 +142,38 @@
         "documentation": {}
     },
     {
+        "label": "mape_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "mape_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "rmse_metrics",
+        "importPath": "utils.metrics",
+        "description": "utils.metrics",
+        "isExtraImport": true,
+        "detail": "utils.metrics",
+        "documentation": {}
+    },
+    {
         "label": "rmse_metrics",
         "importPath": "utils.metrics",
         "description": "utils.metrics",
@@ -155,6 +203,166 @@
         "description": "utils.data_helpers",
         "isExtraImport": true,
         "detail": "utils.data_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split_time_series",
+        "importPath": "utils.data_helpers",
+        "description": "utils.data_helpers",
+        "isExtraImport": true,
+        "detail": "utils.data_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split_time_series",
+        "importPath": "utils.data_helpers",
+        "description": "utils.data_helpers",
+        "isExtraImport": true,
+        "detail": "utils.data_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTROL_FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTIMIZATION_PERCENTAGE",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTUNA_TRIALS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "adstock_features_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_slopes_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_half_saturations_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTROL_FEATURES",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_CHANNELS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTIMIZATION_PERCENTAGE",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTUNA_TRIALS",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "adstock_features_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_slopes_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "hill_half_saturations_params",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
         "documentation": {}
     },
     {
@@ -310,6 +518,118 @@
         "documentation": {}
     },
     {
+        "label": "budget_optimization",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_contribution",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "get_optimal_response_point",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "model_refit",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "optuna_optimize",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "process_response_curve",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "budget_optimization",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_contribution",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "get_optimal_response_point",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "model_refit",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "optuna_optimize",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "process_response_curve",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "Ridge",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "Ridge",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
         "label": "geometric_adstock",
         "importPath": "pymc_marketing.mmm.transformers",
         "description": "pymc_marketing.mmm.transformers",
@@ -416,6 +736,22 @@
         "description": "scipy",
         "isExtraImport": true,
         "detail": "scipy",
+        "documentation": {}
+    },
+    {
+        "label": "Prophet",
+        "importPath": "prophet",
+        "description": "prophet",
+        "isExtraImport": true,
+        "detail": "prophet",
+        "documentation": {}
+    },
+    {
+        "label": "SARIMAX",
+        "importPath": "statsmodels.tsa.statespace.sarimax",
+        "description": "statsmodels.tsa.statespace.sarimax",
+        "isExtraImport": true,
+        "detail": "statsmodels.tsa.statespace.sarimax",
         "documentation": {}
     },
     {
@@ -556,7 +892,7 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "hill_half_saturations_params = {\n    \"tv_ad_hill_half_saturation\": (0.1, 1.0),\n    \"social_ad_hill_half_saturation\": (0.1, 1.0),\n    \"search_ad_hill_half_saturation\": (0.1, 1.0),\n}\nOPTUNA_TRIALS = 1000",
+        "peekOfCode": "hill_half_saturations_params = {\n    \"tv_ad_hill_half_saturation\": (0.1, 1.0),\n    \"social_ad_hill_half_saturation\": (0.1, 1.0),\n    \"search_ad_hill_half_saturation\": (0.1, 1.0),\n}\nOPTUNA_TRIALS = 10",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -565,7 +901,7 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "OPTUNA_TRIALS = 1000",
+        "peekOfCode": "OPTUNA_TRIALS = 10",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -799,7 +1135,7 @@
         "kind": 5,
         "importPath": "streamlit_app",
         "description": "streamlit_app",
-        "peekOfCode": "target_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV\n# @st.cache_data",
+        "peekOfCode": "target_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarimax\"\n}\n# Load Data from CSV\n# @st.cache_data",
         "detail": "streamlit_app",
         "documentation": {}
     },
@@ -808,7 +1144,7 @@
         "kind": 5,
         "importPath": "streamlit_app",
         "description": "streamlit_app",
-        "peekOfCode": "model_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV\n# @st.cache_data\ndef load_data():\n    train_df = pd.read_csv(\"data/train_data.csv\", index_col=0, parse_dates=True)",
+        "peekOfCode": "model_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarimax\"\n}\n# Load Data from CSV\n# @st.cache_data\ndef load_data():\n    train_df = pd.read_csv(\"data/train_data.csv\", index_col=0, parse_dates=True)",
         "detail": "streamlit_app",
         "documentation": {}
     }

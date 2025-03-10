@@ -3,7 +3,6 @@ import sys
 sys.path.append('.')
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import Ridge 
 from sklearn.model_selection import TimeSeriesSplit
 
 from utils.plot_helpers import plot_forecast
@@ -16,7 +15,7 @@ from utils.prediction_helpers import budget_optimization, estimate_contribution,
 if __name__ == "__main__":
     
     #Load DATA
-    model_name = "ridge"
+    model_name = "prophet"
     freq = "D"
     file_path = f"data/{freq}_preprocessed_data.csv"
     data = pd.read_csv(file_path)
@@ -41,7 +40,7 @@ if __name__ == "__main__":
                              adstock_features_params = adstock_features_params, 
                              hill_slopes_params = hill_slopes_params,
                              hill_half_saturations_params = hill_half_saturations_params,
-                             regressor="ridge",
+                             regressor="prophet",
                              tscv = tscv)
     
     best_params = experiment.best_trial.user_attrs["params"]
@@ -62,14 +61,19 @@ if __name__ == "__main__":
                         start_index = start_predicted_index, 
                         end_index = end_predicted_index)
     
-    result['model_data'].to_csv("data/prediction_result_data.csv", index=True)
+    result['model_data'].to_csv(f"data/{model_name}_prediction_result_data.csv", index=True)
     
-    #save feature coefficients 
-    feature_coefficients = {}
-    for feature, model_feature, coef in zip(result["features"], result["model_features"], result["model"].coef_):
-        feature_coefficients[feature] = coef
-        print(f"feature: {feature} -> coefficient {coef}")
-    import pdb; pdb.set_trace()
+    # #save feature coefficients 
+    # feature_coefficients = {}
+    # # Extract the 'beta' parameter, which contains external regressor coefficients
+    # beta_values = result["model"].params["beta"].flatten()  # Convert to a 1D array
+
+    # # Ensure the number of features matches beta values
+    # if len(result["features"]) == len(beta_values):
+    #     for feature, coef in zip(result["features"], beta_values):
+    #         feature_coefficients[feature] = coef
+    #         print(f"Feature: {feature} -> Coefficient: {coef}")
+    # import pdb; pdb.set_trace()
 
     #Evaluation
     # Get evaluation data
@@ -90,37 +94,37 @@ if __name__ == "__main__":
     # plot_forecast(train_df, test_df, predictions, target_name, title, xlabel, ylabel)
 
 
-    spend_response_curve_dict, media_spend_response_data = process_response_curve(MEDIA_CHANNELS, result, adstock_params_best, hill_slopes_params_best, hill_half_saturations_params_best, feature_coefficients)
+    # spend_response_curve_dict, media_spend_response_data = process_response_curve(MEDIA_CHANNELS, result, adstock_params_best, hill_slopes_params_best, hill_half_saturations_params_best, feature_coefficients)
 
-    contribution_df = estimate_contribution(result, media_spend_response_data, start_predicted_index, end_predicted_index)
+    # contribution_df = estimate_contribution(result, media_spend_response_data, start_predicted_index, end_predicted_index)
 
-    with open("data/spend_response_curve_dict.pkl", "wb") as f:
-        pickle.dump(spend_response_curve_dict, f)
+    # with open(f"data/{model_name}_spend_response_curve_dict.pkl", "wb") as f:
+    #     pickle.dump(spend_response_curve_dict, f)
 
-    media_spend_response_data.to_csv("data/media_spend_response_data.csv", index=True)
+    # media_spend_response_data.to_csv("data/media_spend_response_data.csv", index=True)
 
-    #Contributions
-    contribution_df.to_csv("data/contribution_data.csv", index=True)
+    # #Contributions
+    # contribution_df.to_csv(f"data/{model_name}_contribution_data.csv", index=True)
 
-    #Optimisation
+    # #Optimisation
    
-    budget_allocated = budget_optimization(result, OPTIMIZATION_PERCENTAGE, feature_coefficients, hill_slopes_params_best, hill_half_saturations_params_best)
-    budget_allocated.to_csv("data/budget_allocated.csv")
+    # budget_allocated = budget_optimization(result, OPTIMIZATION_PERCENTAGE, feature_coefficients, hill_slopes_params_best, hill_half_saturations_params_best)
+    # budget_allocated.to_csv(f"data/{model_name}_budget_allocated.csv")
 
-    ## Plot optimal response curve
-    optimal_response_curve_dict = spend_response_curve_dict.copy()
-    budget_allocated_values = budget_allocated['optimal_spend'].values
-    optimized_spend_channels, optimized_response_channels = get_optimal_response_point(MEDIA_CHANNELS, result, budget_allocated_values, adstock_params_best, hill_slopes_params_best, 
-                           hill_half_saturations_params_best, feature_coefficients)
+    # ## Plot optimal response curve
+    # optimal_response_curve_dict = spend_response_curve_dict.copy()
+    # budget_allocated_values = budget_allocated['optimal_spend'].values
+    # optimized_spend_channels, optimized_response_channels = get_optimal_response_point(MEDIA_CHANNELS, result, budget_allocated_values, adstock_params_best, hill_slopes_params_best, 
+    #                        hill_half_saturations_params_best, feature_coefficients)
     
-    for i, channel in enumerate(MEDIA_CHANNELS):
-        optimal_response_curve_dict[channel].update({
-            "optimal_spending": optimized_spend_channels[i],
-            "optimal_response": optimized_response_channels[i]
-        })
+    # for i, channel in enumerate(MEDIA_CHANNELS):
+    #     optimal_response_curve_dict[channel].update({
+    #         "optimal_spending": optimized_spend_channels[i],
+    #         "optimal_response": optimized_response_channels[i]
+    #     })
 
-    with open("data/optimal_response_curve_dict.pkl", "wb") as f:
-        pickle.dump(optimal_response_curve_dict, f)
+    # with open(f"data/{model_name}_optimal_response_curve_dict.pkl", "wb") as f:
+    #     pickle.dump(optimal_response_curve_dict, f)
 
 
         

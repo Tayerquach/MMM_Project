@@ -29,4 +29,4 @@ hill_half_saturations_params = {
     "social_ad_hill_half_saturation": (0.1, 1.0),
     "search_ad_hill_half_saturation": (0.1, 1.0),
 }
-OPTUNA_TRIALS = 1000
+OPTUNA_TRIALS = 10

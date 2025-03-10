@@ -60,7 +60,7 @@ model_mapping = {
     "Ridge Regression": "ridge",
     "LSTM": "lstm",
     "Facebook Prophet": "prophet",
-    "SARIMAX": "sarima"
+    "SARIMAX": "sarimax"
 }
 
 

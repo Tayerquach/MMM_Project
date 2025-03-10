@@ -5,6 +5,8 @@ from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
 from utils.metrics import rmse_metrics
 from scipy import optimize
+from prophet import Prophet
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 # Hyperparameter optimization
 import optuna as opt
@@ -105,30 +107,123 @@ def optuna_trial(trial,
     if regressor == "ridge":
         #Ridge parameters
         ridge_alpha = trial.suggest_float("ridge_alpha", 0.01, 1000)
-    scores = []
+        scores = []
 
-    #cross validation
-    for train_index, test_index in tscv.split(data_temp):
-        x_train = data_temp.iloc[train_index][features]
-        y_train =  data_temp[target].values[train_index]
-        
-        x_test = data_temp.iloc[test_index][features]
-        y_test = data_temp[target].values[test_index]
-        
+        #cross validation
+        for train_index, test_index in tscv.split(data_temp):
+            x_train = data_temp.iloc[train_index][features]
+            y_train =  data_temp[target].values[train_index]
+            
+            x_test = data_temp.iloc[test_index][features]
+            y_test = data_temp[target].values[test_index]
+            
 
-        # Put X_train and X_test into the same scale
-        scale = StandardScaler()
+            # Put X_train and X_test into the same scale
+            scale = StandardScaler()
 
-        x_train = scale.fit_transform(x_train)
-        x_test = scale.transform(x_test)
-        
-        if regressor == "ridge":
+            x_train = scale.fit_transform(x_train)
+            x_test = scale.transform(x_test)
+            
             #params of Ridge Regression
             params = {"alpha": ridge_alpha}
+            
+            prediction = ridge_model(ridge_alpha, x_train, y_train, x_test)
+            rmse = rmse_metrics(test_set = y_test, predicted = prediction)
+            scores.append(rmse)
+
+    elif regressor == "prophet":
+        scores = []
+        # Cross-validation for Prophet
+        for train_index, test_index in tscv.split(data_temp):
+            # Prepare train and test sets for Prophet
+            train_df = data_temp.iloc[train_index][[target] + features].reset_index()
+            train_df.rename(columns={"date": "ds", target: "y"}, inplace=True)
+
+            test_df = data_temp.iloc[test_index][features].reset_index()
+            test_df.rename(columns={"date": "ds"}, inplace=True)
+
+            # Tune Prophet Hyperparameters
+            changepoint_prior_scale = trial.suggest_float("changepoint_prior_scale", 0.001, 0.5)
+            seasonality_prior_scale = trial.suggest_float("seasonality_prior_scale", 0.01, 10)
+            seasonality_mode = trial.suggest_categorical("seasonality_mode", ["additive", "multiplicative"])
+
+            # Store hyperparameters in `params`
+            params = {
+                "changepoint_prior_scale": changepoint_prior_scale,
+                "seasonality_prior_scale": seasonality_prior_scale,
+                "seasonality_mode": seasonality_mode
+            }
+
+            # Initialize Prophet Model with Tuned Parameters
+            model = Prophet(
+                changepoint_prior_scale=changepoint_prior_scale,
+                seasonality_prior_scale=seasonality_prior_scale,
+                seasonality_mode=seasonality_mode
+            )
+            
+            # Add external regressors
+            for feature in features:
+                model.add_regressor(feature)
+            
+            # Fit Prophet Model with regressors
+            model.fit(train_df)
+
+            # Create Future DataFrame for test set & Predict
+            future = test_df[['ds'] + features]  # Include external features
+            forecast = model.predict(future)
+
+            prediction = forecast['yhat'].values  # Get predicted values
+            
+            # Compute RMSE
+            rmse = rmse_metrics(test_set=data_temp[target].iloc[test_index], predicted=prediction)
+            scores.append(rmse)
+
         
-        prediction = ridge_model(ridge_alpha, x_train, y_train, x_test)
-        rmse = rmse_metrics(test_set = y_test, predicted = prediction)
-        scores.append(rmse)
+    elif regressor == "sarimax":
+        scores = []
+        # Cross-validation
+        for train_index, test_index in tscv.split(data_temp):
+            x_train = data_temp.iloc[train_index][features]
+            y_train = data_temp[target].iloc[train_index]
+            
+            x_test = data_temp.iloc[test_index][features]
+            y_test = data_temp[target].iloc[test_index]
+
+            if regressor == "sarimax":
+                # Tune SARIMAX Hyperparameters
+                p = trial.suggest_int("p", 0, 3)  # AR order
+                d = trial.suggest_int("d", 0, 1)  # Differencing order
+                q = trial.suggest_int("q", 0, 3)  # MA order
+                P = trial.suggest_int("P", 0, 2)  # Seasonal AR order
+                D = trial.suggest_int("D", 0, 1)  # Seasonal differencing order
+                Q = trial.suggest_int("Q", 0, 2)  # Seasonal MA order
+                s = 7  # Seasonality period
+
+                # Store hyperparameters in `params`
+                params = {
+                    "p": p, "d": d, "q": q, "P": P, "D": D, "Q": Q, "s": s
+                }
+
+                # Train SARIMAX Model
+                model = SARIMAX(
+                    y_train,  
+                    exog=x_train,  
+                    order=(p, d, q),  
+                    seasonal_order=(P, D, Q, s),  
+                    enforce_stationarity=False,  
+                    enforce_invertibility=False
+                )
+                fitted_model = model.fit(disp=False)
+
+                # Predict for test period
+                prediction = fitted_model.predict(start=len(y_train), end=len(y_train) + len(y_test) - 1, exog=x_test)
+
+            else:
+                raise ValueError("Unsupported regressor. Use 'sarimax'.")
+
+            # Compute RMSE
+            rmse = rmse_metrics(test_set=y_test, predicted=prediction)
+            scores.append(rmse)
         
         
     trial.set_user_attr("scores", scores)
@@ -221,7 +316,7 @@ def model_refit(data,
 
     #build the final model on the data until the end analysis index
     x_train = data_refit.iloc[:start_index][temporal_features].copy()
-    y_train = data[target].values[:start_index]
+    y_train = data_refit[target].values[:start_index]
     
     scale = StandardScaler()
     X_train = scale.fit_transform(x_train)
@@ -231,20 +326,75 @@ def model_refit(data,
         model = Ridge(random_state=42, **best_params)
         model.fit(X_train, y_train) 
 
+        #concentrate on the analysis interval
+        y_test = data_refit[target].values[start_index:end_index]
 
-    #concentrate on the analysis interval
-    y_test = data[target].values[start_index:end_index]
+        #transformed data
+        x_test = data_refit.iloc[start_index:end_index][temporal_features].copy()
+        X_test = scale.transform(x_test)
 
-    #transformed data
-    x_test = data_refit.iloc[start_index:end_index][temporal_features].copy()
-    X_test = scale.transform(x_test)
+        #conversion prediction for the analysis interval
+        print(f"predicting {len(x_test)} instances")
+        prediction = model.predict(X_test)
 
-    #conversion prediction for the analysis interval
-    print(f"predicting {len(x_test)} instances")
-    prediction = model.predict(X_test)
+        #non transformed data set for the analysis interval 
+        x_input_interval_nontransformed = data.iloc[start_index:end_index]
 
-    #non transformed data set for the analysis interval 
-    x_input_interval_nontransformed = data.iloc[start_index:end_index]
+    elif regressor == "prophet":
+        # Concentrate on the analysis interval
+        y_test = data_refit[target].iloc[start_index:end_index].values  # Ensure correct slicing
+
+        # Prepare Prophet-compatible dataframe
+        x_test = data_refit.iloc[start_index:end_index][temporal_features].reset_index()
+        x_test.rename(columns={"date": "ds"}, inplace=True)  # Prophet requires "ds" column for dates
+
+        # Initialize Prophet Model (Using Best Parameters if Tuned)
+        model = Prophet(
+            changepoint_prior_scale=best_params["changepoint_prior_scale"],
+            seasonality_prior_scale=best_params["seasonality_prior_scale"],
+            seasonality_mode=best_params["seasonality_mode"]
+        )
+
+        # Add external regressors
+        for feature in temporal_features:
+            model.add_regressor(feature)
+
+        # Fit the model on refitted data
+        train_df = data_refit[[target] + temporal_features].reset_index()
+        train_df.rename(columns={"date": "ds", target: "y"}, inplace=True)
+
+        model.fit(train_df)
+        forecast = model.predict(x_test)
+        prediction = forecast["yhat"].values  # Extract Prophet predictions
+        # Non-transformed dataset for the analysis interval
+        x_input_interval_nontransformed = data.iloc[start_index:end_index].copy()
+
+    if regressor == "sarimax":
+        #build using the best parameters
+        model = SARIMAX(
+            y_train,  
+            exog=x_train,  
+            order=(best_params["p"], best_params["d"], best_params["q"]),  
+            seasonal_order=(best_params["P"], best_params["D"], best_params["Q"], best_params["s"]),  
+            enforce_stationarity=False,  
+            enforce_invertibility=False
+        )
+        fitted_model = model.fit(disp=False)
+
+        # Concentrate on the analysis interval
+        y_test = data_refit[target].values[start_index:end_index]  # Extract ground truth
+
+        # Transformed data for SARIMAX
+        x_test = data_refit.iloc[start_index:end_index][temporal_features].copy()  # Extract exogenous features
+
+        # Forecast for the analysis interval
+        print(f"Predicting {len(x_test)} instances...")
+        # Ensure model is fitted
+
+        prediction = fitted_model.forecast(steps=len(x_test), exog=x_test)
+
+        # Non-transformed dataset for the analysis interval
+        x_input_interval_nontransformed = data_refit.iloc[start_index:end_index]
 
 
     return {
