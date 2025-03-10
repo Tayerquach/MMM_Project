@@ -9,11 +9,12 @@ from sklearn.model_selection import TimeSeriesSplit
 from utils.plot_helpers import plot_forecast
 from utils.metrics import mape_metrics, rmse_metrics
 from utils.data_helpers import train_test_split_time_series
-from utils.config import FEATURES, CONTROL_FEATURES, MEDIA_CHANNELS, OPTUNA_TRIALS, TARGET, adstock_features_params, hill_slopes_params, hill_half_saturations_params  
-from utils.prediction_helpers import estimate_contribution, model_refit, optuna_optimize, process_media_channels
+from utils.config import FEATURES, CONTROL_FEATURES, MEDIA_CHANNELS, OPTIMIZATION_PERCENTAGE, OPTUNA_TRIALS, TARGET, adstock_features_params, hill_slopes_params, hill_half_saturations_params  
+from utils.prediction_helpers import budget_optimization, estimate_contribution, get_optimal_response_point, model_refit, optuna_optimize, process_response_curve
 
 
 if __name__ == "__main__":
+    
     #Load DATA
     model_name = "ridge"
     freq = "D"
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     daily_df.columns = data.columns.str.replace('_spend_raw', '', regex=True)
     #Train and test split
     train_df, test_df, start_predicted_index, end_predicted_index = train_test_split_time_series(data, test_size=0.2)
-
+    
     #Save train_df and test_df
     train_df.to_csv("data/train_data.csv", index=True)  # Saves with datetime index
     test_df.to_csv("data/test_data.csv", index=True)  # Saves with datetime index
@@ -61,6 +62,8 @@ if __name__ == "__main__":
                         start_index = start_predicted_index, 
                         end_index = end_predicted_index)
     
+    result['model_data'].to_csv("data/prediction_result_data.csv", index=True)
+    
     #save feature coefficients 
     feature_coefficients = {}
     for feature, model_feature, coef in zip(result["features"], result["model_features"], result["model"].coef_):
@@ -86,15 +89,37 @@ if __name__ == "__main__":
     # plot_forecast(train_df, test_df, predictions, target_name, title, xlabel, ylabel)
 
 
-    spend_response_curve_dict, media_spend_response_data = process_media_channels(MEDIA_CHANNELS, result, adstock_params_best, hill_slopes_params_best, hill_half_saturations_params_best, feature_coefficients)
+    spend_response_curve_dict, media_spend_response_data = process_response_curve(MEDIA_CHANNELS, result, adstock_params_best, hill_slopes_params_best, hill_half_saturations_params_best, feature_coefficients)
 
     contribution_df = estimate_contribution(result, media_spend_response_data, start_predicted_index, end_predicted_index)
 
-    with open("data/parameters_prediction.pkl", "wb") as f:
+    with open("data/spend_response_curve_dict.pkl", "wb") as f:
         pickle.dump(spend_response_curve_dict, f)
 
     media_spend_response_data.to_csv("data/media_spend_response_data.csv", index=True)
+
+    #Contributions
     contribution_df.to_csv("data/contribution_data.csv", index=True)
+
+    #Optimisation
+   
+    budget_allocated = budget_optimization(result, OPTIMIZATION_PERCENTAGE, feature_coefficients, hill_slopes_params_best, hill_half_saturations_params_best)
+    budget_allocated.to_csv("data/budget_allocated.csv")
+
+    ## Plot optimal response curve
+    optimal_response_curve_dict = spend_response_curve_dict.copy()
+    budget_allocated_values = budget_allocated['optimal_spend'].values
+    optimized_spend_channels, optimized_response_channels = get_optimal_response_point(MEDIA_CHANNELS, result, budget_allocated_values, adstock_params_best, hill_slopes_params_best, 
+                           hill_half_saturations_params_best, feature_coefficients)
+    
+    for i, channel in enumerate(MEDIA_CHANNELS):
+        optimal_response_curve_dict[channel].update({
+            "optimal_spending": optimized_spend_channels[i],
+            "optimal_response": optimized_response_channels[i]
+        })
+
+    with open("data/optimal_response_curve_dict.pkl", "wb") as f:
+        pickle.dump(optimal_response_curve_dict, f)
 
 
         

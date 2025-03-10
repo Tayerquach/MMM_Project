@@ -22,7 +22,7 @@ While trend and seasonality naturally shape demand, EggBuddy also actively creat
 
     * 🔍 Search ads (for capturing intent)
 
-**Note**: EggBuddy **cannot directly measure** "how much people want their coffee", thus, we can use demand proxies in the simulated data.
+**Note**: EggBuddy **cannot directly measure** "how much people want their coffee", thus, we can use organic proxies in the simulated data.
 
 Since sales are influenced by both real demand and marketing spend, the model needs to account for both separately.
 
@@ -39,7 +39,7 @@ Since sales are influenced by both real demand and marketing spend, the model ne
 * Social media ads create buzz and get people talking.
 * Search ads convert customers who are already looking for coffee immediately.
 
-## How future ad spend will impact sales
+## How future ad spend will impact conversion (number of users)
 ✅ Predict daily sales ☕.
 
 ✅ Understand when sales are driven by real demand vs. marketing spend.

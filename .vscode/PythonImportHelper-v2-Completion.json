@@ -182,6 +182,14 @@
         "documentation": {}
     },
     {
+        "label": "OPTIMIZATION_PERCENTAGE",
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "isExtraImport": true,
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
         "label": "OPTUNA_TRIALS",
         "importPath": "utils.config",
         "description": "utils.config",
@@ -254,7 +262,23 @@
         "documentation": {}
     },
     {
+        "label": "budget_optimization",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
         "label": "estimate_contribution",
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "isExtraImport": true,
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "get_optimal_response_point",
         "importPath": "utils.prediction_helpers",
         "description": "utils.prediction_helpers",
         "isExtraImport": true,
@@ -278,7 +302,7 @@
         "documentation": {}
     },
     {
-        "label": "process_media_channels",
+        "label": "process_response_curve",
         "importPath": "utils.prediction_helpers",
         "description": "utils.prediction_helpers",
         "isExtraImport": true,
@@ -387,6 +411,14 @@
         "documentation": {}
     },
     {
+        "label": "optimize",
+        "importPath": "scipy",
+        "description": "scipy",
+        "isExtraImport": true,
+        "detail": "scipy",
+        "documentation": {}
+    },
+    {
         "label": "optuna",
         "kind": 6,
         "isExtraImport": true,
@@ -409,6 +441,15 @@
         "description": "PIL",
         "isExtraImport": true,
         "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.express",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.express",
+        "description": "plotly.express",
+        "detail": "plotly.express",
         "documentation": {}
     },
     {
@@ -452,7 +493,7 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "TARGET = \"conversion\"\nMEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}",
+        "peekOfCode": "TARGET = \"conversion\"\nMEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nOPTIMIZATION_PERCENTAGE = 0.2\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -461,7 +502,7 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "MEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {",
+        "peekOfCode": "MEDIA_CHANNELS = [\"tv_ad\", \"social_ad\", \"search_ad\"]\nCONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nOPTIMIZATION_PERCENTAGE = 0.2\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -470,7 +511,7 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "CONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),",
+        "peekOfCode": "CONTROL_FEATURES = [\"organic_proxy\"]\n# control_features = [\"Trend\", \"Seasonal\"]\nFEATURES = MEDIA_CHANNELS\nOPTIMIZATION_PERCENTAGE = 0.2\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -479,7 +520,16 @@
         "kind": 5,
         "importPath": "utils.config",
         "description": "utils.config",
-        "peekOfCode": "FEATURES = MEDIA_CHANNELS\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),\n    \"search_ad_hill_slope\": (0.1, 5.0),",
+        "peekOfCode": "FEATURES = MEDIA_CHANNELS\nOPTIMIZATION_PERCENTAGE = 0.2\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),",
+        "detail": "utils.config",
+        "documentation": {}
+    },
+    {
+        "label": "OPTIMIZATION_PERCENTAGE",
+        "kind": 5,
+        "importPath": "utils.config",
+        "description": "utils.config",
+        "peekOfCode": "OPTIMIZATION_PERCENTAGE = 0.2\nadstock_features_params = {\n    \"tv_ad_adstock\": (0.1, 0.4),\n    \"social_ad_adstock\": (0.1, 0.4),\n    \"search_ad_adstock\": (0.1, 0.4),\n}\nhill_slopes_params = {\n    \"tv_ad_hill_slope\": (0.1, 5.0),\n    \"social_ad_hill_slope\": (0.1, 5.0),\n    \"search_ad_hill_slope\": (0.1, 5.0),",
         "detail": "utils.config",
         "documentation": {}
     },
@@ -646,11 +696,11 @@
         "documentation": {}
     },
     {
-        "label": "process_media_channels",
+        "label": "process_response_curve",
         "kind": 2,
         "importPath": "utils.prediction_helpers",
         "description": "utils.prediction_helpers",
-        "peekOfCode": "def process_media_channels(media_channels, result, adstock_params_best, hill_slopes_params_best, \n                           hill_half_saturations_params_best, feature_coefficients):\n    \"\"\"\n    Processes media channels to compute spend-response relationships and store necessary data.\n    Args:\n        media_channels (list): List of media channels.\n        result (dict): Contains model data for media channels.\n        adstock_params_best (dict): Adstock parameters for each channel.\n        hill_slopes_params_best (dict): Hill saturation slope parameters.\n        hill_half_saturations_params_best (dict): Hill half-saturation parameters.",
+        "peekOfCode": "def process_response_curve(media_channels, result, adstock_params_best, hill_slopes_params_best, \n                           hill_half_saturations_params_best, feature_coefficients):\n    \"\"\"\n    Processes media channels to compute spend-response relationships and store necessary data.\n    Args:\n        media_channels (list): List of media channels.\n        result (dict): Contains model data for media channels.\n        adstock_params_best (dict): Adstock parameters for each channel.\n        hill_slopes_params_best (dict): Hill saturation slope parameters.\n        hill_half_saturations_params_best (dict): Hill half-saturation parameters.",
         "detail": "utils.prediction_helpers",
         "documentation": {}
     },
@@ -660,6 +710,42 @@
         "importPath": "utils.prediction_helpers",
         "description": "utils.prediction_helpers",
         "peekOfCode": "def estimate_contribution(result, media_spend_response_data, start_predicted_index, end_predicted_index):\n    response_df = pd.DataFrame()\n    for media_channel in MEDIA_CHANNELS:\n        response = media_spend_response_data[media_spend_response_data['media_channel'] == media_channel].iloc[start_predicted_index:end_predicted_index].response.values\n        response_total = response.sum()\n        response_df = pd.concat([response_df, pd.DataFrame({'media': [media_channel], 'total_effect': [response_total]})]).reset_index(drop=True)\n    response_df[\"effect_share\"] = response_df[\"total_effect\"] / response_df[\"total_effect\"].sum()\n    organic_data = result[\"model_data\"].iloc[start_predicted_index:end_predicted_index]\n    organic_data = organic_data[[TARGET] + CONTROL_FEATURES]\n    # Calculate effect share",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "budget_constraint",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def budget_constraint(media_spend, budget):  \n  return np.sum(media_spend) - budget\ndef saturation_objective_function(coefficients, \n                                  hill_slopes, \n                                  hill_half_saturations, \n                                  media_min_max_dictionary, \n                                  media_inputs):\n    responses = []\n    for i in range(len(coefficients)):\n        coef = coefficients[i]",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "saturation_objective_function",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def saturation_objective_function(coefficients, \n                                  hill_slopes, \n                                  hill_half_saturations, \n                                  media_min_max_dictionary, \n                                  media_inputs):\n    responses = []\n    for i in range(len(coefficients)):\n        coef = coefficients[i]\n        hill_slope = hill_slopes[i]\n        hill_half_saturation = hill_half_saturations[i]",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "budget_optimization",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def budget_optimization(result, optimization_percentage, feature_coefficients, hill_slopes_params_best, hill_half_saturations_params_best):\n    media_channel_average_spend = result[\"model_data\"][MEDIA_CHANNELS].mean(axis=0).values\n    lower_bound = media_channel_average_spend * np.ones(len(MEDIA_CHANNELS))*(1-optimization_percentage)\n    upper_bound = media_channel_average_spend * np.ones(len(MEDIA_CHANNELS))*(1+ optimization_percentage)\n    boundaries = optimize.Bounds(lb=lower_bound, ub=upper_bound)\n    media_coefficients = [feature_coefficients[media_channel] for media_channel in MEDIA_CHANNELS]\n    media_hill_slopes = [hill_slopes_params_best[media_channel] for media_channel in MEDIA_CHANNELS]\n    media_hill_half_saturations = [hill_half_saturations_params_best[media_channel] for media_channel in MEDIA_CHANNELS]\n    media_min_max = [(result[\"model_data\"][f\"{media_channel}_adstock\"].min(),result[\"model_data\"][f\"{media_channel}_adstock\"].max())  for media_channel in MEDIA_CHANNELS]\n    partial_saturation_objective_function = partial(saturation_objective_function, ",
+        "detail": "utils.prediction_helpers",
+        "documentation": {}
+    },
+    {
+        "label": "get_optimal_response_point",
+        "kind": 2,
+        "importPath": "utils.prediction_helpers",
+        "description": "utils.prediction_helpers",
+        "peekOfCode": "def get_optimal_response_point(media_channels, result, budget_allocated_values, adstock_params_best, hill_slopes_params_best, \n                           hill_half_saturations_params_best, feature_coefficients):\n    \"\"\"\n    Estimate optimal spend-response relationships and store necessary data.\n    Args:\n        media_channels (list): List of media channels.\n        result (dict): Contains model data for media channels.\n        solution (dict): Optimisation's result\n        adstock_params_best (dict): Adstock parameters for each channel.\n        hill_slopes_params_best (dict): Hill saturation slope parameters.",
         "detail": "utils.prediction_helpers",
         "documentation": {}
     },
@@ -695,7 +781,7 @@
         "kind": 5,
         "importPath": "streamlit_app",
         "description": "streamlit_app",
-        "peekOfCode": "menu_options = [\"Conversion Prediction\", \"Response Curve\", \"Budget Optimization\"]\nselected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\ntarget_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}",
+        "peekOfCode": "menu_options = [\"Home\", \"Conversion Prediction\", \"Response Curve\", \"Budget Optimization\"]\nselected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\n# Home Page - Load and Display Markdown Content\nif selected_menu == \"Home\":\n    # Load markdown content from introduction.md\n    with open(\"introduction.md\", \"r\", encoding=\"utf-8\") as file:\n        intro_content = file.read()\n    # Display markdown content in Streamlit\n    st.markdown(intro_content, unsafe_allow_html=True)\ntarget_name = 'conversion'",
         "detail": "streamlit_app",
         "documentation": {}
     },
@@ -704,7 +790,7 @@
         "kind": 5,
         "importPath": "streamlit_app",
         "description": "streamlit_app",
-        "peekOfCode": "selected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\ntarget_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers\nmodel_mapping = {\n    \"Ridge Regression\": \"ridge\",\n    \"LSTM\": \"lstm\",\n    \"Facebook Prophet\": \"prophet\",\n    \"SARIMAX\": \"sarima\"\n}\n# Load Data from CSV",
+        "peekOfCode": "selected_menu = st.sidebar.selectbox(\"Select a Section\", menu_options)\n# Home Page - Load and Display Markdown Content\nif selected_menu == \"Home\":\n    # Load markdown content from introduction.md\n    with open(\"introduction.md\", \"r\", encoding=\"utf-8\") as file:\n        intro_content = file.read()\n    # Display markdown content in Streamlit\n    st.markdown(intro_content, unsafe_allow_html=True)\ntarget_name = 'conversion'\n# Mapping user-friendly names to actual model identifiers",
         "detail": "streamlit_app",
         "documentation": {}
     },

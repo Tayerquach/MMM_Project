@@ -12,6 +12,7 @@ MEDIA_CHANNELS = ["tv_ad", "social_ad", "search_ad"]
 CONTROL_FEATURES = ["organic_proxy"]
 # control_features = ["Trend", "Seasonal"]
 FEATURES = MEDIA_CHANNELS
+OPTIMIZATION_PERCENTAGE = 0.2
 
 adstock_features_params = {
     "tv_ad_adstock": (0.1, 0.4),

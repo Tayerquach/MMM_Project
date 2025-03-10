@@ -4,6 +4,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
 from utils.metrics import rmse_metrics
+from scipy import optimize
 
 # Hyperparameter optimization
 import optuna as opt
@@ -259,7 +260,7 @@ def model_refit(data,
            }
 
 
-def process_media_channels(media_channels, result, adstock_params_best, hill_slopes_params_best, 
+def process_response_curve(media_channels, result, adstock_params_best, hill_slopes_params_best, 
                            hill_half_saturations_params_best, feature_coefficients):
     """
     Processes media channels to compute spend-response relationships and store necessary data.
@@ -360,6 +361,134 @@ def estimate_contribution(result, media_spend_response_data, start_predicted_ind
     })
     
     return contribution_df
+
+# Optimisation
+
+def budget_constraint(media_spend, budget):  
+  return np.sum(media_spend) - budget
+
+
+def saturation_objective_function(coefficients, 
+                                  hill_slopes, 
+                                  hill_half_saturations, 
+                                  media_min_max_dictionary, 
+                                  media_inputs):
+    
+    responses = []
+    for i in range(len(coefficients)):
+        coef = coefficients[i]
+        hill_slope = hill_slopes[i]
+        hill_half_saturation = hill_half_saturations[i]
+        
+        min_max = np.array(media_min_max_dictionary[i])
+        media_input = media_inputs[i]
+        
+        hill_saturation = HillSaturation(slope_s = hill_slope, half_saturation_k=hill_half_saturation).transform(X = min_max, x_point = media_input)
+        response = coef * hill_saturation
+        responses.append(response)
+        
+    responses = np.array(responses)
+    responses_total = np.sum(responses)
+    return -responses_total
+
+def budget_optimization(result, optimization_percentage, feature_coefficients, hill_slopes_params_best, hill_half_saturations_params_best):
+
+    media_channel_average_spend = result["model_data"][MEDIA_CHANNELS].mean(axis=0).values
+
+    lower_bound = media_channel_average_spend * np.ones(len(MEDIA_CHANNELS))*(1-optimization_percentage)
+    upper_bound = media_channel_average_spend * np.ones(len(MEDIA_CHANNELS))*(1+ optimization_percentage)
+
+    boundaries = optimize.Bounds(lb=lower_bound, ub=upper_bound)
+
+    media_coefficients = [feature_coefficients[media_channel] for media_channel in MEDIA_CHANNELS]
+    media_hill_slopes = [hill_slopes_params_best[media_channel] for media_channel in MEDIA_CHANNELS]
+    media_hill_half_saturations = [hill_half_saturations_params_best[media_channel] for media_channel in MEDIA_CHANNELS]
+
+    media_min_max = [(result["model_data"][f"{media_channel}_adstock"].min(),result["model_data"][f"{media_channel}_adstock"].max())  for media_channel in MEDIA_CHANNELS]
+
+    partial_saturation_objective_function = partial(saturation_objective_function, 
+                                                media_coefficients, 
+                                                media_hill_slopes, 
+                                                media_hill_half_saturations, 
+                                                media_min_max)
+    
+    max_iterations = 1000
+    solver_func_tolerance = 1.0e-10
+
+    solution = optimize.minimize(
+        fun=partial_saturation_objective_function,
+        x0=media_channel_average_spend,
+        bounds=boundaries,
+        method="SLSQP",
+        jac="3-point",
+        options={
+            "maxiter": max_iterations,
+            "disp": True,
+            "ftol": solver_func_tolerance,
+        },
+        constraints={
+            "type": "eq",
+            "fun": budget_constraint,
+            "args": (np.sum(media_channel_average_spend), )
+        })
+    
+    budget_allocated = pd.DataFrame({
+        "media_channel": MEDIA_CHANNELS,
+        "average_spend": media_channel_average_spend,
+        "optimal_spend": solution.x
+    })
+    
+    print(budget_allocated)
+
+    return budget_allocated
+
+
+def get_optimal_response_point(media_channels, result, budget_allocated_values, adstock_params_best, hill_slopes_params_best, 
+                           hill_half_saturations_params_best, feature_coefficients):
+    """
+    Estimate optimal spend-response relationships and store necessary data.
+
+    Args:
+        media_channels (list): List of media channels.
+        result (dict): Contains model data for media channels.
+        solution (dict): Optimisation's result
+        adstock_params_best (dict): Adstock parameters for each channel.
+        hill_slopes_params_best (dict): Hill saturation slope parameters.
+        hill_half_saturations_params_best (dict): Hill half-saturation parameters.
+        feature_coefficients (dict): Model coefficients for each channel.
+
+    Returns:
+        optimal_spend_response_curve_dict (dict): A dictionary containing spend-response data for each channel.
+        media_spend_response_data (dataframe)
+    """
+
+    optimized_spend_channels, optimized_response_channels = [], []
+    #holds spend and response time series along with average spend/response for plotting spend-response curve
+    for i, media_channel in enumerate(media_channels):
+        print(f"Processing: {media_channel}")
+        
+        adstock = adstock_params_best[media_channel]
+        hill_slope = hill_slopes_params_best[media_channel]
+        hill_half_saturation = hill_half_saturations_params_best[media_channel]
+        coef = feature_coefficients[media_channel]
+        ######################################################
+
+        # Retrieve spending data
+        spendings = result["model_data"][media_channel].values
+        spendings_adstocked = AdstockGeometric(alpha = adstock).fit_transform(spendings)
+        #optimized
+        optimized_spend = budget_allocated_values[i]
+        optimized_response = coef * HillSaturation(slope_s=hill_slope, half_saturation_k=hill_half_saturation).transform(X = spendings_adstocked, x_point = optimized_spend)
+
+        optimized_spend_channels.append(optimized_spend)
+        optimized_response_channels.append(optimized_response)
+        print(f"\toptimized spend: {optimized_spend:0.2f}")
+        print(f"\toptimized response: {optimized_response:0.2f}")
+
+    return optimized_spend_channels, optimized_response_channels
+    
+
+
 
 
 
